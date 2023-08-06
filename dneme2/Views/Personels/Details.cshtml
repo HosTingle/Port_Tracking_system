@@ -1,0 +1,53 @@
+﻿@model dneme2.Models.Personel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<hr />
+<hr />
+<div class="container">
+    <div class="d-flex justify-content-center h-50">
+        <h1>Kaptan Bilgileri</h1>
+        <hr />
+    </div>
+</div>
+
+<hr />
+<hr />
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Soyad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Soyad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cinsiyet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cinsiyet)
+        </dd>
+        <dt class="col-sm-2">
+            Personel Fotoğrafı
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@("~/Contents/"+Model.Persfoto)" asp-append-version=true width="200" height="200" />
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdPerson" class="btn btn-primary">Düzenle</a> |
+    <a asp-action="Index">Kaptan Bilgilerine Geri Dön</a>
+</div>

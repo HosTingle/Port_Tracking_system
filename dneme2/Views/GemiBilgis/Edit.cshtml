@@ -1,0 +1,86 @@
+﻿@model dneme2.Models.GemiBilgi
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="css/style.css" rel="stylesheet">
+<hr />
+<hr />
+<hr />
+<div class="container">
+    <div class="d-flex justify-content-center h-50">
+        <h1>Gemi Bilgilerini Düzenle</h1>
+        <hr />
+    </div>
+</div>
+
+<hr />
+<hr />
+<hr />
+<div class="container">
+    <div class="d-flex justify-content-center h-50">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdGembilgi" />
+            <div class="form-group">
+                <label asp-for="Bulkon" class="control-label"></label>
+                <input asp-for="Bulkon" class="form-control" />
+                <span asp-validation-for="Bulkon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gitkon" class="control-label"></label>
+                <input asp-for="Gitkon" class="form-control" />
+                <span asp-validation-for="Gitkon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CıkZam" class="control-label"></label>
+                <input asp-for="CıkZam" class="form-control" />
+                <span asp-validation-for="CıkZam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Giris" class="control-label"></label>
+                <input asp-for="Giris" class="form-control" />
+                <span asp-validation-for="Giris" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdSirketler" class="control-label"></label>
+                <select asp-for="IdSirketler" class="form-control" asp-items="ViewBag.IdSirketler"></select>
+                <span asp-validation-for="IdSirketler" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdYükler" class="control-label"></label>
+                <select asp-for="IdYükler" class="form-control" asp-items="ViewBag.IdYükler"></select>
+                <span asp-validation-for="IdYükler" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GemiAd" class="control-label"></label>
+                <input asp-for="GemiAd" class="form-control" />
+                <span asp-validation-for="GemiAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageFil" class="control-label"></label>
+                <p>
+                </p>
+                <input asp-for="ImageFil" accept="image/*" />
+                <span asp-validation-for="ImageFil" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GemiPer" class="control-label"></label>
+                <select asp-for="GemiPer" class="form-control" asp-items="ViewBag.GemiPer"></select>
+                <span asp-validation-for="GemiPer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <div class="d-flex justify-content-center h-50">
+        <a asp-action="Index">Listeye geri dön</a>
+    </div>
+</div>
+
+

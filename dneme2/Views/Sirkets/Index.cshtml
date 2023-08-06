@@ -1,0 +1,69 @@
+﻿@model IEnumerable<dneme2.Models.Sirket>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron jumbotron-fluid mb-5">
+    <div class="container text-center py-5">
+        <h1 class="text-white display-3">Şirketler</h1>
+        <div class="d-inline-flex align-items-center text-white">
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped" id="sa">
+    <thead class="bg-primary text-white">
+        <tr>
+            <th>
+                Şirket İsmi
+            </th>
+            <th>
+                Şirketin Menşei
+            </th>
+            <th>
+                Tecrübe
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sirketisim)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SirketÜlke)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SirketTec)
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.IdSir">Düzenle</a>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdSir">İncele</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdSir">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a class="btn btn-primary" asp-action="Create">Yeni Kayıt Oluştur</a>
+</p>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
+<script type="text/javascript">
+    var js = jQuery.noConflict(true);
+
+    js(document).ready(function () {
+        js('#sa').DataTable({
+
+        });
+    });
+</script>

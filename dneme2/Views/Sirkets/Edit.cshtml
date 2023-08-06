@@ -1,0 +1,51 @@
+﻿@model dneme2.Models.Sirket
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<hr />
+<hr />
+<hr />
+<div class="container">
+    <div class="d-flex justify-content-center h-50">
+<h1>Şirket Bilgilerini Düzenle</h1>
+<hr />
+</div>
+</div>
+
+<hr />
+<hr />
+<hr />
+<div class="row">
+    <div class="d-flex justify-content-center h-50">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdSir" />
+            <div class="form-group">
+                <label asp-for="Sirketisim" class="control-label">Şirket İsmi</label>
+                <input asp-for="Sirketisim" class="form-control" />
+                <span asp-validation-for="Sirketisim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SirketÜlke" class="control-label">Şirket Menşei</label>
+                <input asp-for="SirketÜlke" class="form-control" />
+                <span asp-validation-for="SirketÜlke" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SirketTec" class="control-label">Tecrübe</label>
+                <input asp-for="SirketTec" class="form-control" />
+                <span asp-validation-for="SirketTec" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+            <div>
+                <a asp-action="Index">Şirket Bilgilerine geri dön</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

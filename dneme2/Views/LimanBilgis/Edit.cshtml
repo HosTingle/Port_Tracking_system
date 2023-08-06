@@ -1,0 +1,69 @@
+﻿@model dneme2.Models.LimanBilgi
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<hr />
+<hr />
+<div class="container">
+    <div class="d-flex justify-content-center h-50">
+        <h1>Liman Bilgilerini Düzenle</h1>
+        <hr />
+    </div>
+</div>
+
+<hr />
+<hr />
+<hr />
+<div class="row">
+    <div class="d-flex justify-content-center h-50">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdLima" />
+            <div class="form-group">
+                <label asp-for="Bulseh" class="control-label">Bulunduğu Şehir</label>
+                <input asp-for="Bulseh" class="form-control" />
+                <span asp-validation-for="Bulseh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Limanad" class="control-label">Liman Adı</label>
+                <input asp-for="Limanad" class="form-control" />
+                <span asp-validation-for="Limanad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bulülke" class="control-label">Bulunduğu Ülke</label>
+                <input asp-for="Bulülke" class="form-control" />
+                <span asp-validation-for="Bulülke" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Personsay" class="control-label">Personel Sayısı</label>
+                <input asp-for="Personsay" class="form-control" />
+                <span asp-validation-for="Personsay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdGemiler" class="control-label">İçerisindeki Gemi</label>
+                <select asp-for="IdGemiler" class="form-control" asp-items="ViewBag.IdGemiler"></select>
+                <span asp-validation-for="IdGemiler" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageFi" class="control-label">Liman Fotoğrafı</label>
+                <p>
+                </p>
+                <input asp-for="ImageFi" accept="image/*" />
+                <span asp-validation-for="ImageFi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+            <div>
+                <a asp-action="Index">Liman Bilgilerine geri dön</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

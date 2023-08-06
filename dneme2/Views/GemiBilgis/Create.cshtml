@@ -1,0 +1,80 @@
+﻿@model dneme2.Models.GemiBilgi
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<hr />
+<hr />
+<div class="container">
+    <div class="d-flex justify-content-center h-50">
+        <h1>Gemi Kaydı Oluştur</h1>
+        <hr />
+    </div>
+</div>
+
+<hr />
+<hr />
+<hr />
+<div class="row">
+    <div class="d-flex justify-content-center h-50">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Bulkon" class="control-label">Bulunduğu Konum</label>
+                <input asp-for="Bulkon" class="form-control" />
+                <span asp-validation-for="Bulkon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gitkon" class="control-label">Gittiği Konum</label>
+                <input asp-for="Gitkon" class="form-control" />
+                <span asp-validation-for="Gitkon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CıkZam" class="control-label">Çıkış Zamanı</label>
+                <input asp-for="CıkZam" class="form-control" />
+                <span asp-validation-for="CıkZam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Giris" class="control-label">Giriş Zamanı</label>
+                <input asp-for="Giris" class="form-control" />
+                <span asp-validation-for="Giris" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdSirketler" class="control-label">Şirket İsmi</label>
+                <select asp-for="IdSirketler" class="form-control" asp-items="ViewBag.IdSirketler"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdYükler" class="control-label">Yük Türü</label>
+                <select asp-for="IdYükler" class="form-control" asp-items="ViewBag.IdYükler"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GemiAd" class="control-label">Gemi Adi</label>
+                <input asp-for="GemiAd" class="form-control" />
+                <span asp-validation-for="GemiAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageFil" class="control-label">Gemi Fotoğrafı</label>
+                <p>
+                </p>
+                <input asp-for="ImageFil" accept="image/*" />
+                <span asp-validation-for="ImageFil" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GemiPer" class="control-label">Gemi Kaptanı</label>
+                <select asp-for="GemiPer" class="form-control" asp-items="ViewBag.GemiPer"></select>
+            </div>
+            <div class="form-group" href="\home\index">
+                <input type="submit" value="Oluştur" class="btn btn-primary" />
+            </div>
+            <div>
+                <a asp-action="Index">Gemi Bilgilerine Geri Dön</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

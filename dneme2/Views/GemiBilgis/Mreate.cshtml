@@ -1,0 +1,52 @@
+﻿@model dneme2.Models.GemiBilgi
+
+<div class="jumbotron jumbotron-fluid mb-5">
+    <div class="container text-center py-5">
+        <h1 class="text-white display-3">Takip Sistemi</h1>
+        <div class="d-inline-flex align-items-center text-white">
+        </div>
+    </div>
+</div>
+<div>
+    <div class="container text-center py-5">
+    <h1>Aktif Olarak Sistemimize Bağlı Gemilerin Konumları</h1>
+</div>
+
+<div class="form-control">
+    @Html.Label("Ülkeler")
+    @Html.DropDownList("TerritoryId",Model.TeroList,"Ülke",new {@class="form-control"})
+    <br />
+    @Html.Label("Şehirler")
+    @Html.DropDownList("RegionId",Model.RegionList,"Şehir",new {@class="form-control"})
+
+
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script>
+    $(function () {
+        $('#TerritoryId').change(function () {
+            var id = $('#TerritoryId').val();
+            $.ajax({
+                url: '/GemiBilgis/GetTerritories',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#RegionId').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#RegionId').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</option>");
+                    }
+                }
+            });
+        });
+    });
+</script>

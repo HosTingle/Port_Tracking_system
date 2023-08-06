@@ -1,0 +1,53 @@
+﻿@model dneme2.Models.YükBilgi
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<hr />
+<hr />
+<div class="container">
+    <div class="d-flex justify-content-center h-50">
+        <h1>Liman Bilgileri</h1>
+        <hr />
+    </div>
+</div>
+
+<hr />
+<hr />
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Yük Ağırlığı
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YükAgir)
+        </dd>
+        <dt class="col-sm-2">
+            Yük Adedi
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YükMiktar)
+        </dd>
+        <dt class="col-sm-2">
+            Yük Güvenliği
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YükGüven)
+        </dd>
+        <dt class="col-sm-2">
+            Yük Türü
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YukTur)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdYükbil" class="btn btn-primary">Düzenle</a> |
+    <a asp-action="Index">Yük Bilgilerine Geri Dön</a>
+</div>

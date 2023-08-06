@@ -1,0 +1,68 @@
+﻿@model dneme2.Models.LimanBilgi
+
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<hr />
+<hr />
+<div class="container">
+    <div class="d-flex justify-content-center h-50">
+        <h1>Liman Kaydı Silme</h1>
+        <br />
+    </div>
+</div>
+<hr />
+<hr />
+<hr />
+<div>
+   
+    <dl class="row">
+        <dt class="col-sm-2">
+            Bulunduğu şehir
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bulseh)
+        </dd>
+        <dt class="col-sm-2">
+            Liman Adı
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Limanad)
+        </dd>
+        <dt class="col-sm-2">
+            Bulunduğu Ülke
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bulülke)
+        </dd>
+        <dt class="col-sm-2">
+            Personel Sayısı
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Personsay)
+        </dd>
+        <dt class="col-sm-2">
+            Liman Fotoğrafı
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@("~/Contents/"+Model.Limanfoto)" asp-append-version=true width="300" height="300" />
+        </dd>
+        <dt class="col-sm-2">
+            Gemi Adı
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdGemilerNavigation.GemiAd)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdLima" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index">Liman Bilgilerine Dön</a>
+    </form>
+</div>
+

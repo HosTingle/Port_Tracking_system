@@ -1,0 +1,83 @@
+﻿@model dneme2.Models.GemiBilgi
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<hr />
+<hr />
+<div class="container">
+    <div class="d-flex justify-content-center h-50">
+        <h1>Gemi Bilgileri</h1>
+        <hr />
+    </div>
+</div>
+
+<hr />
+<hr />
+<hr />
+<div>
+  
+    <dl class="row">
+        <dt class="col-sm-2">
+            Bulunduğu Konum
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bulkon)
+        </dd>
+        <dt class="col-sm-2">
+            Gittiği Konum
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gitkon)
+        </dd>
+        <dt class="col-sm-2">
+            Çıkış Zamanı
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CıkZam)
+        </dd>
+        <dt class="col-sm-2">
+            Giriş Zamanı
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Giris)
+        </dd>
+        <dt class="col-sm-2">
+            Gemi Adı
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GemiAd)
+        </dd>
+        <dt class="col-sm-2">
+            Gemi Fotoğrafı
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@("~/Contents/"+Model.Gemifoto)" asp-append-version=true />
+        </dd>
+        <dt class="col-sm-2">
+            Gemi Kaptanı
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GemiPerNavigation!.Ad)
+        </dd>
+        <dt class="col-sm-2">
+            Geminin Bağlı Olduğu Şirket
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdSirketlerNavigation!.Sirketisim)
+        </dd>
+        <dt class="col-sm-2">
+            Yük Türü
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdYüklerNavigation!.YukTur)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdGembilgi" class="btn btn-primary">Düzenle</a> |
+    <a asp-action="Index">Gemi Bilgilerine Geri Dön</a>
+</div>

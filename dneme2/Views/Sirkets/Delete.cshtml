@@ -1,0 +1,48 @@
+﻿@model dneme2.Models.Sirket
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<hr />
+<hr />
+<hr />
+<div class="container">
+    <div class="d-flex justify-content-center h-50">
+        <h1>Şirket Kaydı Silme</h1>
+         <br/>
+    </div>
+</div>
+<hr />
+<hr />
+<hr />
+
+<div>
+    
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Şirket İsmi
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sirketisim)
+        </dd>
+        <dt class = "col-sm-2">
+            Şirket Menşei
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SirketÜlke)
+        </dd>
+        <dt class = "col-sm-2">
+            Tecrübe
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SirketTec)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdSir" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index">Şirket Bilgilerine Geri Dön</a>
+    </form>
+</div>
